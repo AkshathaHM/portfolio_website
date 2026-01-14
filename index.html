@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Portfolio Website HTML CSS JS</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Portfolio.</a>
+        <nav class="navbar">
+            <a href="#home" style="--i:1;" class="active">Home</a>
+            <a href="#about" style="--i:2;">About</a>
+            <a href="#education" style="--i:3;">Education</a>
+            <a href="#projects" style="--i:5;">Projects</a>
+            <a href="#skills" style="--i:4;">Skills</a>
+            <a href="#contact" style="--i:6;">Contact</a>
+        </nav>
+    </header>
+    <section id="home" class="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Akshatha H M</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>Motivated fresher with strong interest in software Engineering.
+               Looking for an entry-level role to learn, grow, and contribute to real-world projects.</p>
+            <div class="social-media">
+                <a href="https://github.com/AkshathaHM" style="--i:12;" target="_blank"><i class="bx bxl-github"></i></a>
+                <a href="https://www.instagram.com/akshatha.h.mohan/" style="--i:13;" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+                <a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" style="--i:14;" target="_blank"><i class="bx bxl-linkedin"></i></a>
+            </div>
+            <div class="home-buttons">
+                <a href="AkshathaHM (2).pdf" class="btn" download>Download CV</a>
+                <a href="#contact" class="btn hire-btn">Hire Me</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="home.png" alt="">
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="about-content">
+            <h3>About <span class="me">Me</span></h3>
+            <h1>Full Stack Developer!</h1>
+            <p>I am a motivated Computer Science graduate with a strong interest in web and software development. I enjoy building responsive, user-friendly applications using modern technologies like React.js, Java, and JavaScript. My passion lies in turning ideas into practical digital solutions through clean code and thoughtful design.
+
+Through academic projects and a full-stack internship, I have gained hands-on experience in developing scalable web applications, implementing secure authentication, and working with both frontend and backend technologies. I continuously strive to improve my skills by learning new tools, following industry best practices, and understanding user needs. I am now seeking an entry-level opportunity where I can grow as a developer and contribute meaningfully to real-world projects.</p>
+        </div>
+        <div class="about-img">
+            <img src="home.png" alt="">
+        </div>
+    </section>
+   <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-cards">
+                <div class="card" style="--i:1;">
+                    <a href="https://www.kodnest.com/" target="_blank">
+                        <img src="kodnest.jpg" alt="Kodnest Logo" class="card-logo">
+                    </a>
+                    <h3>Java and Python Full Stack Development</h3>
+                    <p>Completed Full Stack Development course in Java and Python at Kodnest.</p>
+                </div>
+                <div class="card" style="--i:2;">
+                    <a href="https://www.sahyadri.edu.in/" target="_blank">
+                        <img src="SCEM.jpg" alt="Sahyadri College Logo" class="card-logo">
+                    </a>
+                    <h3>B.E. in Computer Science and Engineering</h3>
+                    <p>Sahyadri College of Engineering and Management, CGPA: 8.00, 2022 – 2025</p>
+                </div>
+                <div class="card" style="--i:3;">
+                    <a href="https://www.sahyadripolytechnic.org/" target="_blank">
+                        <img src="SPT.jpg" alt="Sahyadri Polytechnic Logo" class="card-logo">
+                    </a>
+                    <h3>Diploma in Electrical and Electronics Engineering</h3>
+                    <p>Sahyadri Polytechnic Thirthahalli, 2019 – 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+                   
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-cards">
+                <div class="card" style="--i:1;">
+                    <a href="https://www.blockchain.com/" target="_blank">
+                        <img src="blockchain.avif" alt="Blockchain Project Logo" class="card-logo">
+                    </a>
+                    <h3>Protecting Digital Art Through Steganography and Blockchain (2024-25)</h3>
+                    <p>A system to embed ownership metadata into digital art using DCT-based steganography, Ethereum blockchain, perceptual hashing, AI-based detection, and IPFS for secure storage and originality verification.</p>
+                    <a href="https://drive.google.com/file/d/12YdK86BENJEErolp_71V5ZKDf2jtZ-kv/view" class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="card" style="--i:2;">
+                    <a href="https://nodejs.org/en" target="_blank">
+                        <img src="nodejs.png" alt="Employee Management System Logo" class="card-logo">
+                    </a>
+                    <h3>Employee Management System (2025)</h3>
+                    <p>Web-based HR platform (onboarding, leave, attendance, payroll) built using React.js, Node.js, Express.js, and MongoDB.</p>
+                    <a href="https://drive.google.com/file/d/1uVfc7XGEN4BzriBhVBJOiyBz1qlx05_P/view" class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="card" style="--i:3;">
+                    <a href="https://react.dev/" target="_blank">
+                        <img src="reactjs.webp" alt="TaskBuddy Logo" class="card-logo">
+                    </a>
+                    <h3>TaskBuddy: Interactive React Task Management Dashboard (2025)</h3>
+                    <p>Responsive single-page React application for task CRUD operations, real-time progress tracking with animated bars, localStorage persistence, and deployment to Netlify, using React hooks for state management.</p>
+                    <a href="https://github.com/AkshathaHM/TaskFocus" class="btn" target="_blank">View Project</a>
+                </div>
+                <div class="card" style="--i:4;">
+                    <a href="https://www.djangoproject.com/" target="_blank">
+                        <img src="Django.png" alt="MealMate Logo" class="card-logo">
+                    </a>
+                    <h3>MealMate: Full-Stack Food Delivery Platform (2025)</h3>
+                    <p>Full-stack Django web app connecting diners and restaurants with search, menus, real-time ordering/tracking, dashboards, and low commissions for efficient, fair food delivery.</p>
+                    <a href="https://github.com/AkshathaHM/meal-buddy" class="btn" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skills-left">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-bar">
+                        <div class="skill-item">
+                            <i class='bx bxl-java'></i>
+                            <span>Java</span>
+                            <div class="bar">
+                                <div class="progress" data-width="90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-python'></i>
+                            <span>Python</span>
+                            <div class="bar">
+                                <div class="progress" data-width="50%"></div>
+                            </div>
+                            <span class="percentage">50%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-javascript'></i>
+                            <span>JavaScript</span>
+                            <div class="bar">
+                                <div class="progress" data-width="60%"></div>
+                            </div>
+                            <span class="percentage">60%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-html5'></i>
+                            <span>HTML</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-css3'></i>
+                            <span>CSS</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-react'></i>
+                            <span>React.js</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <i class='bx bxl-spring-boot'></i>
+                            <span>Spring Boot</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-django'></i>
+                            <span>Django</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-mysql'></i>
+                            <span>MySQL</span>
+                            <div class="bar">
+                                <div class="progress" data-width="90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-mongodb'></i>
+                            <span>MongoDB</span>
+                            <div class="bar">
+                                <div class="progress" data-width="90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxl-git'></i>
+                            <span>Git/GitHub</span>
+                            <div class="bar">
+                                <div class="progress" data-width="90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bxs-folder-open'></i>
+                            <span>Eclipse</span>
+                            <div class="bar">
+                                <div class="progress" data-width="90%"></div>
+                            </div>
+                            <span class="percentage">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bx-data'></i>
+                            <span>Data Structures & Algorithms</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class='bx bx-code'></i>
+                            <span>OOPS</span>
+                            <div class="bar">
+                                <div class="progress" data-width="80%"></div>
+                            </div>
+                            <span class="percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-right">
+                    <h3>Professional Skills</h3>
+                    <div class="skill-circle">
+                        <div class="circle-item">
+                            <div class="circle" style="--percentage:90;">
+                                <span class="percentage">90%</span>
+                            </div>
+                            <span>Teamwork and Collaboration</span>
+                        </div>
+                        <div class="circle-item">
+                            <div class="circle" style="--percentage:85;">
+                                <span class="percentage">85%</span>
+                            </div>
+                            <span>Time Management</span>
+                        </div>
+                        <div class="circle-item">
+                            <div class="circle" style="--percentage:80;">
+                                <span class="percentage">80%</span>
+                            </div>
+                            <span>Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="contact-left">
+                <h2>Let's Work Together</h2>
+<p>
+I am actively seeking entry-level opportunities in software and full-stack development. 
+If you are looking for a motivated fresher who is eager to learn, contribute, and grow in a professional environment, 
+feel free to get in touch. I would be happy to discuss how my skills and projects can add value to your team.
+</p>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class='bx bxs-envelope'></i>
+                        <span>akshathahmohan@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class='bx bxs-phone'></i>
+                        <span>+91 9535757287</span>
+                    </div>
+                </div>
+                <div class="social-media">
+                    <a href="https://github.com/AkshathaHM" target="_blank"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.instagram.com/akshatha.h.mohan/" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+                    <a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <h2>Contact Me</h2>
+                <form id="contactForm">
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter Your Name" name="user_name" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" placeholder="Enter Your Email" name="user_email" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter Your Subject" name="subject" required>
+                    </div>
+                    <div class="input-box">
+                        <textarea placeholder="Enter Your Message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Back to Top Button -->
+
+    <script src="https://unpkg.com/typed.js@2.0.12/lib/typed.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
