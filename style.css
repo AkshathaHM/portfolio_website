@@ -1,3 +1,4 @@
+/* style.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 
 * {
@@ -256,7 +257,7 @@ body {
 
 .circle-item {
   display: flex;
-  flex-direction: column;
+  flex-direction:  column;
   align-items: center;
   gap: 10px;
 }
@@ -328,6 +329,18 @@ body {
 
 .home-content h3 span {
   color: #0ef;
+}
+
+/* Keep "And I'm a ..." hidden until JS shows it */
+.home-content .typing-line {
+  opacity: 0;
+  visibility: hidden;
+  animation: none;
+}
+
+.home-content .typing-line.is-visible {
+  visibility: visible;
+  animation: slideTop 1s ease forwards;
 }
 
 .me {
@@ -646,13 +659,14 @@ body {
   }
 }
 
-/* Responsive design for smaller screens */
+/* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
   .header {
     padding: 20px 5%;
+    flex-wrap: wrap;
   }
   .navbar {
-    display: none; /* Hide navbar on mobile; add hamburger menu if needed */
+    display: none; /* Hide navbar on mobile; you can add a hamburger menu toggle in JS if needed */
   }
   .home,
   .about {
@@ -661,6 +675,33 @@ body {
     padding: 100px 5% 70px;
     height: auto;
     min-height: 100vh;
+    gap: 40px;
+  }
+  .home-content h1 {
+    font-size: 48px;
+  }
+  .home-content h3:first-of-type,
+  .home-content h3:nth-of-type(2) {
+    font-size: 18px;
+  }
+  .about-content h3 {
+    font-size: 48px;
+  }
+  .about-content h1 {
+    font-size: 28px;
+  }
+  .home-img,
+  .about-img {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .home-img::before,
+  .about-img::before {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
   }
   .contact-content {
     flex-direction: column;
@@ -701,84 +742,56 @@ body {
     max-width: 100%;
     margin-bottom: 30px;
   }
-  .home-content h1 {
-    font-size: 48px;
-  }
-  .home-content h3:first-of-type,
-  .home-content h3:nth-of-type(2) {
-    font-size: 18px;
-  }
-  .about-content h3 {
-    font-size: 48px;
-  }
-  .about-content h1 {
-    font-size: 28px;
-  }
-  .contact-left h2,
-  .contact-right h2 {
-    font-size: 28px;
-  }
-  .home-img,
-  .about-img {
-    max-width: 300px;
-    margin-right: 0;
-    margin-left: 0;
-    margin-top: 20px;
-  }
-  .home-img::before,
-  .about-img::before {
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-  }
   .social-media a {
     margin: 20px 10px 20px 0;
   }
   .contact-left .social-media a {
     margin: 0 10px;
   }
-}
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 80px;   /* 👈 THIS adds space between image & content */
-}
-.about-img {
-  margin-right: 80px;
-}
-.about {
-  display: flex;
-  align-items: center;
-  gap: 90px;
-}
-
-.about-content {
-  max-width: 600px;  /* prevents text from stretching too wide */
-}
-@media (max-width: 768px) {
-  .about {
+  .btn {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+  .skill-item {
     flex-direction: column;
-    gap: 40px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .skill-item span:first-of-type {
+    flex: none;
+  }
+  .bar {
+    flex: 1;
+    width: 100%;
   }
 }
-.home,
-.about {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 90px;   /* 👈 space between image & content */
-}
-.home-content,
-.about-content {
-  max-width: 600px;
-}
-@media (max-width: 768px) {
-  .home,
-  .about {
-    flex-direction: column;
-    gap: 40px;
-    text-align: center;
+
+/* Additional improvements for very small screens (e.g., <480px) */
+@media (max-width: 480px) {
+  .header {
+    padding: 15px 3%;
+  }
+  .home-content h1 {
+    font-size: 36px;
+  }
+  .section-title {
+    font-size: 36px;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card h3 {
+    font-size: 18px;
+  }
+  .card p {
+    font-size: 12px;
+  }
+  .contact-right input,
+  .contact-right textarea {
+    padding: 12px;
+    font-size: 14px;
+  }
+  .info-item span {
+    font-size: 14px;
   }
 }

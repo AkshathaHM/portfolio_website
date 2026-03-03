@@ -1,3 +1,4 @@
+// script.js
 // Navbar scroll active
 const sections = document.querySelectorAll('section[id]');
 function scrollActive() {
@@ -18,15 +19,24 @@ window.onscroll = scrollActive;
 
 // Typed.js for multiple text (delayed start)
 document.addEventListener('DOMContentLoaded', function() {
+    // Always start at the top on refresh so Home is the first viewport
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     setTimeout(() => {
-        var typed = new Typed(".multiple-text", {
-            strings: ['Java Full Stack Developer', 'Python Full Stack Developer','Front-end Developer'],
+        const typingLine = document.querySelector('.typing-line');
+        if (typingLine) typingLine.classList.add('is-visible');
+
+        new Typed(".multiple-text", {
+            strings: ['Java Developer', 'Python Developer', 'Front end Developer'],
             typeSpeed: 100,
             backSpeed: 100,
             backDelay: 1000,
             loop: true
         });
-    }, 3000); // Start typing 3s after load, after social media appears
+    }, 3200); // Show last after Home animations
 });
 
 // Function to animate percentage numbers from 0 to target
