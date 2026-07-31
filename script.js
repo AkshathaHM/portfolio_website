@@ -1,208 +1,188 @@
-// script.js
-// Navbar scroll active
-const sections = document.querySelectorAll('section[id]');
-function scrollActive() {
-    const scrollY = window.pageYOffset;
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight,
-            sectionTop = current.offsetTop - 50,
-            sectionId = current.getAttribute('id'),
-            sectionsClass = document.querySelector('.navbar a[href*=' + sectionId + ']');
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            sectionsClass.classList.add('active');
-        } else {
-            sectionsClass.classList.remove('active');
-        }
+const EMAILJS_PUBLIC_KEY = 'u1zncMXG9GReAnrxP';
+const EMAILJS_SERVICE_ID = 'service_52hr6gb';
+const EMAILJS_TEMPLATE_ID = 'template_893svt6';
+
+function animateCounter(element, target, duration = 1400) {
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        element.textContent = `${Math.floor(target * progress)}%`;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+}
+
+function animateSkills(section) {
+    section.querySelectorAll('.progress').forEach(progress => {
+        progress.style.width = `${progress.dataset.width}%`;
+    });
+
+    section.querySelectorAll('.skill-percent').forEach(percent => {
+        animateCounter(percent, Number(percent.dataset.value));
+    });
+
+    section.querySelectorAll('.circle').forEach((circle, index) => {
+        const value = Number(circle.dataset.value);
+        setTimeout(() => {
+            circle.style.setProperty('--progress', `${value * 3.6}deg`);
+            animateCounter(circle.querySelector('.circle-percent'), value);
+        }, index * 160);
     });
 }
-window.onscroll = scrollActive;
 
-// Typed.js for multiple text (delayed start)
-document.addEventListener('DOMContentLoaded', function() {
-    // Always start at the top on refresh so Home is the first viewport
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
+function setupNavigation() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    const navbarLinks = [...document.querySelectorAll('.navbar a')];
+    const sections = [...document.querySelectorAll('section[id]')];
 
-    setTimeout(() => {
-        const typingLine = document.querySelector('.typing-line');
-        if (typingLine) typingLine.classList.add('is-visible');
+    const closeMenu = () => {
+        navbar.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        menuToggle.querySelector('i').className = 'bx bx-menu';
+    };
 
-        new Typed(".multiple-text", {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = navbar.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        menuToggle.querySelector('i').className = isOpen ? 'bx bx-x' : 'bx bx-menu';
+    });
+
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navbarLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+            closeMenu();
+        });
+    });
+
+    const updateActiveLink = () => {
+        const currentSection = sections.reduce((activeSection, section) => {
+            return window.scrollY + 140 >= section.offsetTop ? section : activeSection;
+        }, sections[0]);
+
+        if (!currentSection) return;
+        navbarLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${currentSection.id}`);
+        });
+    };
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+
+    document.addEventListener('click', event => {
+        if (navbar.classList.contains('open') && !event.target.closest('.header')) closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 720) closeMenu();
+    });
+}
+
+function setupTypedText() {
+    if (typeof Typed !== 'undefined' && document.querySelector('.multiple-text')) {
+        new Typed('.multiple-text', {
             strings: ['Java Developer', 'Python Developer', 'Front end Developer'],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
+            typeSpeed: 90,
+            backSpeed: 70,
+            backDelay: 1200,
             loop: true
         });
-    }, 3200); // Show last after Home animations
-});
-
-// Function to animate percentage numbers from 0 to target
-function animateNumbers(duration = 4000) {
-    const percentages = document.querySelectorAll('.percentage');
-    percentages.forEach(span => {
-        const targetStr = span.textContent; // e.g., "90%"
-        const target = parseInt(targetStr); // Extract number
-        if (isNaN(target)) return;
-
-        span.textContent = '0%'; // Start from 0
-        let startTime = null;
-
-        function updateCount(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = Math.floor(target * progress);
-
-            span.textContent = current + '%';
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCount);
-            }
-        }
-        requestAnimationFrame(updateCount);
-    });
+    }
 }
 
-// Progress bars, circles, and numbers animation on scroll
-function animateOnScroll() {
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    const observer = new IntersectionObserver((entries) => {
+function setupRevealAnimations() {
+    const revealElements = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(element => element.classList.add('is-visible'));
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = entry.target;
-                if (target.id === 'skills') {
-                    // Animate progress bars
-                    const progressBars = target.querySelectorAll('.progress');
-                    progressBars.forEach(bar => {
-                        bar.style.width = bar.getAttribute('data-width');
-                    });
-
-                    // Animate circles
-                    const circles = target.querySelectorAll('.circle');
-                    circles.forEach((circle, index) => {
-                        setTimeout(() => {
-                            circle.classList.add('animate');
-                        }, index * 200); // Stagger circles slightly
-                    });
-
-                    // Animate numbers (both technical and professional)
-                    animateNumbers(4000); // 4s duration to match other animations
-
-                    // Disconnect observer after triggering
-                    observer.unobserve(target);
-                }
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.14 });
 
+    revealElements.forEach(element => revealObserver.observe(element));
+}
+
+function setupSkills() {
     const skillsSection = document.querySelector('#skills');
-    if (skillsSection) {
-        observer.observe(skillsSection);
-    }
-}
-animateOnScroll();
+    if (!skillsSection || !('IntersectionObserver' in window)) return;
 
-// Ripple effect on images
-function createRipple(event) {
-    const ripple = document.createElement('span');
-    ripple.classList.add('ripple');
-    const rect = event.currentTarget.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = event.clientX - rect.left - size / 2;
-    const y = event.clientY - rect.top - size / 2;
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.left = x + 'px';
-    ripple.style.top = y + 'px';
-    event.currentTarget.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-}
-document.addEventListener('DOMContentLoaded', function() {
-    const homeImg = document.querySelector('.home-img');
-    const aboutImg = document.querySelector('.about-img');
- 
-    if (homeImg) {
-        homeImg.addEventListener('click', createRipple);
-    }
- 
-    if (aboutImg) {
-        aboutImg.addEventListener('click', createRipple);
-    }
+    const skillsObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            animateSkills(skillsSection);
+            skillsObserver.disconnect();
+        }
+    }, { threshold: 0.2 });
 
-    // Navbar active class toggle
-    const navbarLinks = document.querySelectorAll('.navbar a');
-    navbarLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-           
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-           
-            navbarLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
+    skillsObserver.observe(skillsSection);
+}
+
+function setupImageRipples() {
+    document.querySelectorAll('.home-img, .about-img').forEach(image => {
+        image.addEventListener('click', event => {
+            const ripple = document.createElement('span');
+            const bounds = image.getBoundingClientRect();
+            const size = Math.max(bounds.width, bounds.height);
+            ripple.className = 'ripple';
+            ripple.style.cssText = `width:${size}px;height:${size}px;left:${event.clientX - bounds.left - size / 2}px;top:${event.clientY - bounds.top - size / 2}px`;
+            image.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
         });
     });
+}
 
-    // Set initial active based on scroll position
-    window.addEventListener('scroll', function() {
-        let current = '';
-        const sections = document.querySelectorAll('section');
-        const scrollPos = window.scrollY + 100;
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-        navbarLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    // EmailJS Form Submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        emailjs.init("u1zncMXG9GReAnrxP"); // Replace with your EmailJS user ID
-        contactForm.addEventListener('submit', function(event) {
+function setupCertificates() {
+    document.querySelectorAll('.certificate-link').forEach(link => {
+        link.addEventListener('click', event => {
             event.preventDefault();
-            emailjs.sendForm('service_52hr6gb', 'template_893svt6', this) // Replace with your EmailJS Service ID and Template ID
-                .then(function() {
-                    alert('Message sent to Akshatha H M successfully!');
-                    contactForm.reset();
-                }, function(error) {
-                    alert('Failed to send message to Akshatha H M. Please try again.');
-                    console.log('FAILED...', error);
-                });
         });
-    }
-});
+    });
+}
 
-// Separate observer for circles (fallback, but main one is in animateOnScroll)
-document.addEventListener("DOMContentLoaded", () => {
-    const circles = document.querySelectorAll(".circle");
+function setupContactForm() {
+    const contactForm = document.querySelector('#contactForm');
+    if (!contactForm || typeof emailjs === 'undefined') return;
 
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                }
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    contactForm.addEventListener('submit', event => {
+        event.preventDefault();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="bx bx-loader-alt bx-spin"></i> Sending...';
+
+        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+            .then(() => {
+                alert('Message sent to Akshatha H M successfully!');
+                contactForm.reset();
+            })
+            .catch(error => {
+                console.error('EmailJS send failed:', error);
+                alert('Unable to send the message. Please check the EmailJS service and template configuration.');
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="bx bx-send"></i> Send Message';
             });
-        },
-        { threshold: 0.5 }
-    );
+    });
+}
 
-    circles.forEach(circle => observer.observe(circle));
+document.addEventListener('DOMContentLoaded', () => {
+    setupNavigation();
+    setupTypedText();
+    setupRevealAnimations();
+    setupSkills();
+    setupImageRipples();
+    setupCertificates();
+    setupContactForm();
 });

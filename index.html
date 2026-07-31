@@ -2,310 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Portfolio Website HTML CSS JS</title>
+    <meta name="description" content="Portfolio of Akshatha H M, a full stack developer specializing in Java, Python, React, and Spring Boot.">
+    <title>Akshatha H M | Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
-        <a href="#" class="logo">Portfolio.</a>
-        <nav class="navbar">
-            <a href="#home" style="--i:1;" class="active">Home</a>
-            <a href="#about" style="--i:2;">About</a>
-            <a href="#education" style="--i:3;">Education</a>
-            <a href="#projects" style="--i:5;">Projects</a>
-            <a href="#skills" style="--i:4;">Skills</a>
-            <a href="#contact" style="--i:6;">Contact</a>
-        </nav>
+        <div class="header-inner">
+            <a href="#home" class="logo" aria-label="Akshatha H M home">Portfolio<span>.</span></a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-navigation" aria-expanded="false">
+                <i class="bx bx-menu"></i>
+            </button>
+            <nav class="navbar" id="site-navigation" aria-label="Primary navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
-    <section id="home" class="home">
-        <div class="home-content">
-            <h3>Hello, It's Me</h3>
-            <h1>Akshatha H M</h1>
-            <h3 class="typing-line">And I'm a <span class="multiple-text"></span></h3>
-            <p>Motivated fresher with strong interest in software Engineering.
-               Looking for an entry-level role to learn, grow, and contribute to real-world projects.</p>
-            <div class="social-media">
-                <a href="https://github.com/AkshathaHM" style="--i:12;" target="_blank"><i class="bx bxl-github"></i></a>
-                <a href="https://www.instagram.com/axshuu_25/" style="--i:13;" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
-                <a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" style="--i:14;" target="_blank"><i class="bx bxl-linkedin"></i></a>
-            </div>
-            <div class="home-buttons">
-                <a href="AkshathaHM.pdf" class="btn" download> Download CV </a>
-                <a href="#contact" class="btn hire-btn">Hire Me</a>
-            </div>
-        </div>
-        <div class="home-img">
-            <img src="home.png" alt="">
-        </div>
-    </section>
-    <section id="about" class="about">
-        <div class="about-content">
-            <h3>About <span class="me">Me</span></h3>
-            <h1>Full Stack Developer</h1>
-            <p>Full Stack Developer with hands-on experience in building robust full-stack applications using Java and Spring Boot for backend systems. Proficient in developing secure RESTful APIs, implementing authentication and role-based access control, and optimizing data management with MySQL and SQLite. Experienced in frontend technologies including React.js, HTML5, CSS3, JavaScript, and React Hooks for dynamic, responsive user interfaces, as well as full-stack development using Python and Django. Skilled in database management with MySQL, MongoDB, and SQLite, and tools like Git, GitHub, Postman, VS Code, Eclipse, Maven, and Hibernate. Strong grasp of OOP, Data Structures, Algorithms, DBMS, and core principles for clean, scalable, maintainable code. Adept at problem-solving, teamwork and collaboration, and committed to delivering high-quality, high-performance solutions in team environments.</p>
-        </div>
-        <div class="about-img">
-            <img src="home.png" alt="">
-        </div>
-    </section>
-   <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-cards">
-                <div class="card" style="--i:1;">
-                    <a href="https://www.kodnest.com/" target="_blank">
-                        <img src="kodnest.jpg" alt="Kodnest Logo" class="card-logo">
-                    </a>
-                    <h3>Java and Python Full Stack Development</h3>
-                    <p>Completed Full Stack Development course in Java and Python at Kodnest.</p>
+
+    <main>
+        <section id="home" class="home section-shell">
+            <div class="home-content reveal reveal-left">
+                <p class="eyebrow">Hello, it's me</p>
+                <h1>Akshatha <span>H M</span></h1>
+                <h2 class="typing-line">And I'm a <span class="multiple-text"></span></h2>
+<p class="lead">
+    Full Stack Developer trained in Java & Python with hands-on experience in Spring Boot, React, and Django. 
+    Passionate about DSA and problem-solving. Looking for an entry-level role to grow and contribute to real-world projects.
+</p>                <div class="social-media" aria-label="Social profiles">
+                    <a href="https://github.com/AkshathaHM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+                    <a href="https://www.instagram.com/axshuu_25/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bx bxl-instagram-alt"></i></a>
+                    <a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/Akshatha_HM/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="devicon-leetcode-plain"></i></a>
                 </div>
-                <div class="card" style="--i:2;">
-                    <a href="https://www.sahyadri.edu.in/" target="_blank">
-                        <img src="SCEM.jpg" alt="Sahyadri College Logo" class="card-logo">
-                    </a>
-                    <h3>B.E. in Computer Science and Engineering</h3>
-                    <p>Sahyadri College of Engineering and Management, CGPA: 8.00, 2022 – 2025</p>
-                </div>
-                <div class="card" style="--i:3;">
-                    <a href="https://www.sahyadripolytechnic.org/" target="_blank">
-                        <img src="SPT.jpg" alt="Sahyadri Polytechnic Logo" class="card-logo">
-                    </a>
-                    <h3>Diploma in Electrical and Electronics Engineering</h3>
-                    <p>Sahyadri Polytechnic Thirthahalli, 2019 – 2021</p>
+                <div class="home-buttons">
+                    <a href="AkshathaHM.pdf" class="btn" download><i class="bx bx-download"></i> Download CV</a>
+                    <a href="#contact" class="btn btn-outline">Hire Me</a>
                 </div>
             </div>
-        </div>
-    </section>
-                   
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-cards">
-                <div class="card" style="--i:4;">
-                    <a href="https://spring.io/projects/spring-boot" target="_blank">
-                        <img src="spring-boot-logo.png" alt="Sales Savvy E-Commerce Platform" class="card-logo">
-                    </a>
-                    <h3>Sales Savvy – Modular E-Commerce Platform (2026)</h3>
-                    <p>Scalable full-stack e-commerce application with microservices architecture: six independent services (Authentication, User Management, Product, Cart, Order, Payment). Features secure JWT-based role-based access control, RESTful APIs, React.js frontend for intuitive shopping experience, MySQL database, and integration with payment gateways (Razorpay, Stripe, PayPal) for secure transactions.</p>
-            
-                    <a href="https://github.com/AkshathaHM/E-Commerce-JavaFullStack-Project.git" class="btn" target="_blank">GitHub</a><br>
-                    <a href="https://drive.google.com/file/d/10GBA9kVsgz4FiH2FQpqah_D0HD4-1Crc/view" class="btn" target="_blank">Demo</a>
-                </div>
-                
-                <div class="card" style="--i:3;">
-                    <a href="https://react.dev/" target="_blank">
-                        <img src="reactjs.webp" alt="TaskBuddy Logo" class="card-logo">
-                    </a>
-                    <h3>TaskBuddy: Interactive React Task Management Dashboard (2025)</h3>
-                    <p>Responsive single-page React application for task CRUD operations, real-time progress tracking with animated bars, localStorage persistence, and deployment to Netlify, using React hooks for state management.</p>
-                    <a href="https://github.com/AkshathaHM/TaskFocus" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a><br>
-                    <a href="https://drive.google.com/file/d/1a9e7ip7N6CBAieDFY9CrDlf7FHsJ_G2z/view" class="btn" target="_blank" rel="noopener noreferrer">Demo</a>
-                </div>
-                <div class="card" style="--i:4;">
-                    <a href="https://www.djangoproject.com/" target="_blank">
-                        <img src="Django.png" alt="MealMate Logo" class="card-logo">
-                    </a>
-                    <h3>MealMate: Full-Stack Food Delivery Platform (2025)</h3>
-                    <p>Full-stack Django web app connecting diners and restaurants with search, menus, real-time ordering/tracking, dashboards, and low commissions for efficient, fair food delivery.</p>
-                    <a href="https://github.com/AkshathaHM/meal-buddy" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a><br>
-                    <a href="https://drive.google.com/file/d/1b4cXkOAa3q9tbthcN5s-XS1XTiUpsHfh/view" class="btn" target="_blank" rel="noopener noreferrer">Demo</a>
+            <div class="home-img reveal reveal-right">
+                <img src="home.png" alt="Portrait illustration of Akshatha H M">
+            </div>
+        </section>
+
+        <section id="about" class="about section-shell section-band">
+            <div class="about-img reveal reveal-left"><img src="home.png" alt="Akshatha H M developer profile illustration"></div>
+            <div class="about-content reveal reveal-right">
+                <p class="eyebrow">Get to know me</p>
+                <h2 class="section-title">About <span>Me</span></h2>
+                <h3>Full Stack Developer</h3>
+                <p>
+    Motivated Full Stack Developer trained in both <strong>Java Full Stack</strong> and <strong>Python Full Stack</strong> development with strong hands-on experience. 
+    Skilled in building secure and scalable applications using Java, Spring Boot, React.js, Python, and Django.
+</p>
+<p>
+    Passionate about solving DSA problems and continuously improving problem-solving skills. 
+    Solid understanding of Object-Oriented Programming, Data Structures, Algorithms, DBMS, and SQL. 
+    Eager to contribute to real-world projects, collaborate with teams, and grow as a software engineer.
+</p>
+            </div>
+        </section>
+
+        <section id="education" class="education section-shell">
+            <div class="container">
+                <div class="section-heading reveal"><p class="eyebrow">My journey</p><h2 class="section-title">Education</h2></div>
+                <div class="card-grid education-cards">
+                    <article class="card reveal" style="--delay: .1s;">
+                        <a href="https://www.kodnest.com/" target="_blank" rel="noopener noreferrer"><img src="kodnest.jpg" alt="Kodnest logo" class="card-logo"></a>
+                        <div class="card-content"><p class="card-kicker">Professional training</p><h3>Java and Python Full Stack Development</h3><p>Completed full stack development training in Java and Python at Kodnest.</p></div>
+                        <div class="card-actions"><a href="#" class="btn btn-small certificate-link" aria-label="See Kodnest certificate placeholder">See Certificate</a></div>
+                    </article>
+                    <article class="card reveal" style="--delay: .2s;">
+                        <a href="https://www.sahyadri.edu.in/" target="_blank" rel="noopener noreferrer"><img src="SCEM.jpg" alt="Sahyadri College logo" class="card-logo"></a>
+                        <div class="card-content"><p class="card-kicker">2022 - 2025</p><h3>B.E. in Computer Science and Engineering</h3><p>Sahyadri College of Engineering and Management. CGPA: 8.00.</p></div>
+                        <div class="card-actions"><a href="#" class="btn btn-small certificate-link" aria-label="See degree certificate placeholder">See Certificate</a></div>
+                    </article>
+                    <article class="card reveal" style="--delay: .3s;">
+                        <a href="https://www.sahyadripolytechnic.org/" target="_blank" rel="noopener noreferrer"><img src="SPT.jpg" alt="Sahyadri Polytechnic logo" class="card-logo"></a>
+                        <div class="card-content"><p class="card-kicker">2019 - 2021</p><h3>Diploma in Electrical and Electronics Engineering</h3><p>Sahyadri Polytechnic Thirthahalli.</p></div>
+                        <div class="card-actions"><a href="#" class="btn btn-small certificate-link" aria-label="See diploma certificate placeholder">See Certificate</a></div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-container">
-                <div class="skills-left">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-bar">
-                        <div class="skill-item">
-                            <i class='bx bxl-java'></i>
-                            <span>Java</span>
-                            <div class="bar">
-                                <div class="progress" data-width="90%"></div>
-                            </div>
-                            <span class="percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-python'></i>
-                            <span>Python</span>
-                            <div class="bar">
-                                <div class="progress" data-width="50%"></div>
-                            </div>
-                            <span class="percentage">50%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-javascript'></i>
-                            <span>JavaScript</span>
-                            <div class="bar">
-                                <div class="progress" data-width="60%"></div>
-                            </div>
-                            <span class="percentage">60%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-html5'></i>
-                            <span>HTML</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-css3'></i>
-                            <span>CSS</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-react'></i>
-                            <span>React.js</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <i class='bx bxl-spring-boot'></i>
-                            <span>Spring Boot</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-django'></i>
-                            <span>Django</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-mysql'></i>
-                            <span>MySQL</span>
-                            <div class="bar">
-                                <div class="progress" data-width="90%"></div>
-                            </div>
-                            <span class="percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-mongodb'></i>
-                            <span>MongoDB</span>
-                            <div class="bar">
-                                <div class="progress" data-width="90%"></div>
-                            </div>
-                            <span class="percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxl-git'></i>
-                            <span>Git/GitHub</span>
-                            <div class="bar">
-                                <div class="progress" data-width="90%"></div>
-                            </div>
-                            <span class="percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bxs-folder-open'></i>
-                            <span>Eclipse</span>
-                            <div class="bar">
-                                <div class="progress" data-width="90%"></div>
-                            </div>
-                            <span class="percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bx-data'></i>
-                            <span>Data Structures & Algorithms</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <i class='bx bx-code'></i>
-                            <span>OOPS</span>
-                            <div class="bar">
-                                <div class="progress" data-width="80%"></div>
-                            </div>
-                            <span class="percentage">80%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-right">
-                    <h3>Professional Skills</h3>
-                    <div class="skill-circle">
-                        <div class="circle-item">
-                            <div class="circle" style="--percentage:90;">
-                                <span class="percentage">90%</span>
-                            </div>
-                            <span>Teamwork and Collaboration</span>
-                        </div>
-                        <div class="circle-item">
-                            <div class="circle" style="--percentage:85;">
-                                <span class="percentage">85%</span>
-                            </div>
-                            <span>Time Management</span>
-                        </div>
-                        <div class="circle-item">
-                            <div class="circle" style="--percentage:80;">
-                                <span class="percentage">80%</span>
-                            </div>
-                            <span>Problem Solving</span>
-                        </div>
-                    </div>
+        </section>
+
+        <section id="projects" class="projects section-shell section-band">
+            <div class="container">
+                <div class="section-heading reveal"><p class="eyebrow">Selected work</p><h2 class="section-title">Projects</h2></div>
+                <div class="card-grid projects-cards">
+                    <article class="card reveal" style="--delay: .1s;"><a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer"><img src="spring-boot-logo.png" alt="Spring Boot logo" class="card-logo"></a><div class="card-content"><p class="card-kicker">Java / Spring Boot</p><h3>Sales Savvy - Modular E-Commerce Platform</h3><p>Scalable microservices platform with authentication, user, product, cart, order, and payment services. Includes JWT access control, React, MySQL, and payment gateway integrations.</p></div><div class="card-actions"><a href="https://github.com/AkshathaHM/E-Commerce-JavaFullStack-Project.git" class="btn btn-small" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://e-commerce-java-full-stack-project-zeta.vercel.app" class="btn btn-small btn-outline" target="_blank" rel="noopener noreferrer">Live Demo</a></div></article>
+                    <article class="card reveal" style="--delay: .2s;"><a href="https://react.dev/" target="_blank" rel="noopener noreferrer"><img src="reactjs.webp" alt="React logo" class="card-logo"></a><div class="card-content"><p class="card-kicker">React.js</p><h3>TaskBuddy: Task Management Dashboard</h3><p>Responsive task dashboard with CRUD operations, progress tracking, localStorage persistence, and React hooks for state management.</p></div><div class="card-actions"><a href="https://github.com/AkshathaHM/TaskFocus" class="btn btn-small" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://task-focus-cf85jggjk-hmakshatha97-9329s-projects.vercel.app" class="btn btn-small btn-outline" target="_blank" rel="noopener noreferrer">Live Demo</a></div></article>
+                    <article class="card reveal" style="--delay: .3s;"><a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer"><img src="Django.png" alt="Django logo" class="card-logo"></a><div class="card-content"><p class="card-kicker">Python / Django</p><h3>MealMate: Food Delivery Platform</h3><p>Full stack Django application connecting diners and restaurants with search, menus, ordering, tracking, and role-based dashboards.</p></div><div class="card-actions"><a href="https://github.com/AkshathaHM/meal-buddy" class="btn btn-small" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://meal-buddy-2e80.onrender.com" class="btn btn-small btn-outline" target="_blank" rel="noopener noreferrer">Live Demo</a></div></article>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="contact" class="contact">
-        <div class="contact-content">
-            <div class="contact-left">
-                <h2>Let's Work Together</h2>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class='bx bxs-envelope'></i>
-                        <span>akshathahmohan@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class='bx bxs-phone'></i>
-                        <span>+91 9535757287</span>
-                    </div>
-                </div>
-                <div class="social-media">
-                    <a href="https://github.com/AkshathaHM" target="_blank"><i class="bx bxl-github"></i></a>
-                    <a href="https://www.instagram.com/akshatha.h.mohan/" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
-                    <a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        </section>
+
+        <section id="skills" class="skills section-shell">
+            <div class="container">
+                <div class="section-heading reveal"><p class="eyebrow">What I work with</p><h2 class="section-title">Skills</h2></div>
+                <div class="skills-container">
+                    <div class="skills-left reveal"><h3>Technical Skills</h3><div class="skill-list">
+                        <div class="skill-item"><i class="bx bxl-java"></i><span class="skill-name">Java</span><div class="bar"><span class="progress" data-width="90"></span></div><strong class="skill-percent" data-value="90">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-python"></i><span class="skill-name">Python</span><div class="bar"><span class="progress" data-width="50"></span></div><strong class="skill-percent" data-value="50">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-javascript"></i><span class="skill-name">JavaScript</span><div class="bar"><span class="progress" data-width="60"></span></div><strong class="skill-percent" data-value="60">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-html5"></i><span class="skill-name">HTML / CSS</span><div class="bar"><span class="progress" data-width="80"></span></div><strong class="skill-percent" data-value="80">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-react"></i><span class="skill-name">React.js</span><div class="bar"><span class="progress" data-width="80"></span></div><strong class="skill-percent" data-value="80">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-spring-boot"></i><span class="skill-name">Spring Boot</span><div class="bar"><span class="progress" data-width="80"></span></div><strong class="skill-percent" data-value="80">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-django"></i><span class="skill-name">Django</span><div class="bar"><span class="progress" data-width="80"></span></div><strong class="skill-percent" data-value="80">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-mysql"></i><span class="skill-name">MySQL / MongoDB</span><div class="bar"><span class="progress" data-width="90"></span></div><strong class="skill-percent" data-value="90">0%</strong></div>
+                        <div class="skill-item"><i class="bx bxl-git"></i><span class="skill-name">Git / GitHub</span><div class="bar"><span class="progress" data-width="90"></span></div><strong class="skill-percent" data-value="90">0%</strong></div>
+                        <div class="skill-item"><i class="bx bx-data"></i><span class="skill-name">DSA / OOP</span><div class="bar"><span class="progress" data-width="80"></span></div><strong class="skill-percent" data-value="80">0%</strong></div>
+                    </div></div>
+                    <div class="skills-right reveal"><h3>Professional Skills</h3><div class="skill-circle">
+                        <div class="circle-item"><div class="circle" data-value="90"><span class="circle-percent">0%</span></div><span>Teamwork and Collaboration</span></div>
+                        <div class="circle-item"><div class="circle" data-value="85"><span class="circle-percent">0%</span></div><span>Time Management</span></div>
+                        <div class="circle-item"><div class="circle" data-value="80"><span class="circle-percent">0%</span></div><span>Problem Solving</span></div>
+                    </div></div>
                 </div>
             </div>
-            <div class="contact-right">
-                <h2>Contact Me</h2>
-                <form id="contactForm">
-                    <div class="input-box">
-                        <input type="text" placeholder="Enter Your Name" name="user_name" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="email" placeholder="Enter Your Email" name="user_email" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Enter Your Subject" name="subject" required>
-                    </div>
-                    <div class="input-box">
-                        <textarea placeholder="Enter Your Message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Submit</button>
-                </form>
+        </section>
+
+        <section id="contact" class="contact section-shell section-band">
+            <div class="contact-content">
+                <div class="contact-left reveal reveal-left">
+                    <p class="eyebrow">Open to Opportunities</p>
+<h2>Hire Me</h2>
+                    <p class="contact-text">
+    I'm actively looking for <strong>entry-level Full Stack / Backend Developer</strong> opportunities. 
+    If you have any openings or would like to connect, feel free to email me — I'd love to hear from you!
+</p>
+                    <div class="contact-info"><a href="mailto:akshathahmohan@gmail.com" class="info-item"><i class="bx bxs-envelope"></i><span>akshathahmohan@gmail.com</span></a><a href="tel:+919535757287" class="info-item"><i class="bx bxs-phone"></i><span>+91 9535757287</span></a></div><div class="social-media" aria-label="Social profiles"><a href="https://github.com/AkshathaHM" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bx bxl-github"></i></a><a href="https://www.instagram.com/axshuu_25/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bx bxl-instagram-alt"></i></a><a href="https://www.linkedin.com/in/akshatha-h-m-596a5a29a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a><a href="https://leetcode.com/u/Akshatha_HM/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="devicon-leetcode-plain"></i></a></div></div>
+                <div class="contact-right reveal reveal-right"><p class="eyebrow">Email me</p><h2>Contact Me</h2><form id="contactForm"><label><span>Your name</span><input type="text" name="user_name" placeholder="Enter your name" autocomplete="name" required></label><label><span>Your email</span><input type="email" name="user_email" placeholder="Enter your email" autocomplete="email" required></label><label><span>Subject</span><input type="text" name="subject" placeholder="What would you like to discuss?" required></label><label><span>Message</span><textarea name="message" placeholder="Write your message" rows="5" required></textarea></label><button type="submit" class="btn"><i class="bx bx-send"></i> Send Message</button></form></div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Back to Top Button -->
+        </section>
+    </main>
 
     <script src="https://unpkg.com/typed.js@2.0.12/lib/typed.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
