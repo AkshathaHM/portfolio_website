@@ -34,11 +34,11 @@ button, input, textarea { font: inherit; }
 .header { position: fixed; inset: 0 0 auto; height: var(--header-height); z-index: 1000; background: rgba(11, 18, 32, .94); border-bottom: 1px solid rgba(255, 255, 255, .06); backdrop-filter: blur(14px); transition: var(--transition); }
 body.light-theme .header { background: rgba(255, 255, 255, .94); border-bottom: 1px solid rgba(0, 0, 0, .08); }
 .header-inner { width: min(1180px, calc(100% - 48px)); height: 100%; margin: auto; display: flex; align-items: center; justify-content: space-between; }
-.header-controls { display: flex; align-items: center; gap: 12px; }
+.header-right { display: flex; align-items: center; gap: 10px; }
 .logo { color: var(--text); font-size: 1.55rem; font-weight: 700; text-decoration: none; transition: var(--transition); }
 .logo span, .section-title span, .home-content h1 span { color: var(--cyan); transition: var(--transition); }
 .navbar { display: flex; align-items: center; gap: clamp(18px, 3vw, 38px); }
-.navbar a { display: inline-flex; align-items: center; gap: 8px; position: relative; padding: 8px 0; color: var(--text); font-size: .95rem; font-weight: 500; text-decoration: none; transition: color .25s ease; }
+.navbar a { display: inline-flex; align-items: center; gap: 4px; position: relative; padding: 8px 0; color: var(--text); font-size: .95rem; font-weight: 500; text-decoration: none; transition: color .25s ease; }
 .navbar a i { font-size: 1.05rem; color: var(--cyan); line-height: 1; }
 .navbar a::after { content: ''; position: absolute; right: 100%; bottom: 0; left: 0; height: 2px; background: var(--cyan); transition: right .25s ease; }
 .navbar a:hover, .navbar a.active { color: var(--cyan); }
