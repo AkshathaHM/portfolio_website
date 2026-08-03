@@ -94,7 +94,7 @@ function setupNavigation() {
 function setupTypedText() {
     if (typeof Typed !== 'undefined' && document.querySelector('.multiple-text')) {
         new Typed('.multiple-text', {
-            strings: ['Java Developer', 'Python Developer', 'Front end Developer'],
+            strings: ['Java Full Stack Developer', 'Python Full Stack Developer', 'Backend Developer'],
             typeSpeed: 90,
             backSpeed: 70,
             backDelay: 1200,
