@@ -42,10 +42,9 @@ body.light-theme .header { background: rgba(255, 255, 255, .94); border-bottom: 
 .navbar a::after { content: ''; position: absolute; right: 100%; bottom: 0; left: 0; height: 2px; background: var(--cyan); transition: right .25s ease; }
 .navbar a:hover, .navbar a.active { color: var(--cyan); }
 .navbar a:hover::after, .navbar a.active::after { right: 0; }
-.menu-toggle, .theme-toggle { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--cyan); cursor: pointer; font-size: 1.65rem; transition: var(--transition); }
-.menu-toggle:hover, .theme-toggle:hover { border-color: var(--cyan); background: rgba(0, 238, 255, .08); }
-body.light-theme .menu-toggle:hover, body.light-theme .theme-toggle:hover { background: rgba(0, 144, 255, .08); }
-.theme-toggle { display: flex; font-size: 1.55rem; }
+.theme-toggle { display: flex; align-items: center; justify-content: center; width: auto; height: auto; border: none; border-radius: 0; background: transparent; color: var(--cyan); cursor: pointer; font-size: 1.25rem; transition: var(--transition); padding: 0; }
+.theme-toggle:hover { color: #7fffff; transform: scale(1.15); }
+body.light-theme .theme-toggle:hover { color: #4ab8ff; }
 
 .section-shell { width: min(1180px, calc(100% - 48px)); min-height: auto; margin: auto; padding: 112px 0 92px; display: flex; align-items: center; }
 .section-band { width: 100%; padding-right: max(24px, calc((100% - 1180px) / 2)); padding-left: max(24px, calc((100% - 1180px) / 2)); background: linear-gradient(105deg, rgba(11, 18, 32, .42), transparent 60%); transition: var(--transition); }
