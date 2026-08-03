@@ -144,9 +144,8 @@ function setupImageRipples() {
 
 function setupCertificates() {
     document.querySelectorAll('.certificate-link').forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-        });
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
     });
 }
 
