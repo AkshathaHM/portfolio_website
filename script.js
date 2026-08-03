@@ -2,6 +2,38 @@ const EMAILJS_PUBLIC_KEY = 'u1zncMXG9GReAnrxP';
 const EMAILJS_SERVICE_ID = 'service_52hr6gb';
 const EMAILJS_TEMPLATE_ID = 'template_893svt6';
 
+// Theme toggle functionality
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+}
+
+function applyTheme(theme) {
+    const body = document.body;
+    const themeToggle = document.querySelector('.theme-toggle');
+    const icon = themeToggle.querySelector('i');
+
+    if (theme === 'light') {
+        body.classList.add('light-theme');
+        icon.className = 'bx bx-sun';
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.classList.remove('light-theme');
+        icon.className = 'bx bx-moon';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+function setupThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+}
+
 function animateCounter(element, target, duration = 1400) {
     const startTime = performance.now();
 
@@ -177,6 +209,8 @@ function setupContactForm() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    initializeTheme();
+    setupThemeToggle();
     setupNavigation();
     setupTypedText();
     setupRevealAnimations();
