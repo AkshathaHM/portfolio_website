@@ -2,38 +2,6 @@ const EMAILJS_PUBLIC_KEY = 'u1zncMXG9GReAnrxP';
 const EMAILJS_SERVICE_ID = 'service_52hr6gb';
 const EMAILJS_TEMPLATE_ID = 'template_893svt6';
 
-// Theme toggle functionality
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-}
-
-function applyTheme(theme) {
-    const body = document.body;
-    const themeToggle = document.querySelector('.theme-toggle');
-    const icon = themeToggle.querySelector('i');
-
-    if (theme === 'light') {
-        body.classList.add('light-theme');
-        icon.className = 'bx bx-sun';
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.classList.remove('light-theme');
-        icon.className = 'bx bx-moon';
-        localStorage.setItem('theme', 'dark');
-    }
-}
-
-function setupThemeToggle() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
-    });
-}
-
 function animateCounter(element, target, duration = 1400) {
     const startTime = performance.now();
 
@@ -136,6 +104,74 @@ function setupSkills() {
     skillsObserver.observe(skillsSection);
 }
 
+function setupProjectCarousel() {
+    const carousel = document.querySelector('.projects-carousel');
+    if (!carousel) return;
+
+    const cards = [...carousel.querySelectorAll('.projects-cards .card')];
+    const previousButton = carousel.querySelector('.carousel-prev');
+    const nextButton = carousel.querySelector('.carousel-next');
+    const status = carousel.querySelector('.carousel-status');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    if (cards.length < 2 || !previousButton || !nextButton || !status) return;
+
+    let activeIndex = 0;
+    let rotationTimer;
+    const dots = cards.map((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Show project ${index + 1}`);
+        dot.addEventListener('click', () => {
+            showProject(index);
+            startRotation();
+        });
+        dotsContainer?.append(dot);
+        return dot;
+    });
+
+    const showProject = index => {
+        activeIndex = (index + cards.length) % cards.length;
+        cards.forEach((card, cardIndex) => {
+            const isActive = cardIndex === activeIndex;
+            card.classList.toggle('is-active', isActive);
+            card.setAttribute('aria-hidden', String(!isActive));
+            if (isActive) card.classList.add('is-visible');
+        });
+        status.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+        dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === activeIndex);
+            dot.setAttribute('aria-current', dotIndex === activeIndex ? 'true' : 'false');
+        });
+    };
+
+    const stopRotation = () => window.clearInterval(rotationTimer);
+    const startRotation = () => {
+        stopRotation();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            rotationTimer = window.setInterval(() => showProject(activeIndex + 1), 5000);
+        }
+    };
+
+    previousButton.addEventListener('click', () => {
+        showProject(activeIndex - 1);
+        startRotation();
+    });
+    nextButton.addEventListener('click', () => {
+        showProject(activeIndex + 1);
+        startRotation();
+    });
+    carousel.addEventListener('mouseenter', stopRotation);
+    carousel.addEventListener('mouseleave', startRotation);
+    carousel.addEventListener('focusin', stopRotation);
+    carousel.addEventListener('focusout', event => {
+        if (!carousel.contains(event.relatedTarget)) startRotation();
+    });
+
+    showProject(0);
+    startRotation();
+}
+
 function setupImageRipples() {
     document.querySelectorAll('.home-img, .about-img').forEach(image => {
         image.addEventListener('click', event => {
@@ -185,12 +221,11 @@ function setupContactForm() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initializeTheme();
-    setupThemeToggle();
     setupNavigation();
     setupTypedText();
     setupRevealAnimations();
     setupSkills();
+    setupProjectCarousel();
     setupImageRipples();
     setupCertificates();
     setupContactForm();
