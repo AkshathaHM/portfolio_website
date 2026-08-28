@@ -104,74 +104,6 @@ function setupSkills() {
     skillsObserver.observe(skillsSection);
 }
 
-function setupProjectCarousel() {
-    const carousel = document.querySelector('.projects-carousel');
-    if (!carousel) return;
-
-    const cards = [...carousel.querySelectorAll('.projects-cards .card')];
-    const previousButton = carousel.querySelector('.carousel-prev');
-    const nextButton = carousel.querySelector('.carousel-next');
-    const status = carousel.querySelector('.carousel-status');
-    const dotsContainer = carousel.querySelector('.carousel-dots');
-    if (cards.length < 2 || !previousButton || !nextButton || !status) return;
-
-    let activeIndex = 0;
-    let rotationTimer;
-    const dots = cards.map((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot';
-        dot.type = 'button';
-        dot.setAttribute('aria-label', `Show project ${index + 1}`);
-        dot.addEventListener('click', () => {
-            showProject(index);
-            startRotation();
-        });
-        dotsContainer?.append(dot);
-        return dot;
-    });
-
-    const showProject = index => {
-        activeIndex = (index + cards.length) % cards.length;
-        cards.forEach((card, cardIndex) => {
-            const isActive = cardIndex === activeIndex;
-            card.classList.toggle('is-active', isActive);
-            card.setAttribute('aria-hidden', String(!isActive));
-            if (isActive) card.classList.add('is-visible');
-        });
-        status.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
-        dots.forEach((dot, dotIndex) => {
-            dot.classList.toggle('is-active', dotIndex === activeIndex);
-            dot.setAttribute('aria-current', dotIndex === activeIndex ? 'true' : 'false');
-        });
-    };
-
-    const stopRotation = () => window.clearInterval(rotationTimer);
-    const startRotation = () => {
-        stopRotation();
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            rotationTimer = window.setInterval(() => showProject(activeIndex + 1), 5000);
-        }
-    };
-
-    previousButton.addEventListener('click', () => {
-        showProject(activeIndex - 1);
-        startRotation();
-    });
-    nextButton.addEventListener('click', () => {
-        showProject(activeIndex + 1);
-        startRotation();
-    });
-    carousel.addEventListener('mouseenter', stopRotation);
-    carousel.addEventListener('mouseleave', startRotation);
-    carousel.addEventListener('focusin', stopRotation);
-    carousel.addEventListener('focusout', event => {
-        if (!carousel.contains(event.relatedTarget)) startRotation();
-    });
-
-    showProject(0);
-    startRotation();
-}
-
 function setupImageRipples() {
     document.querySelectorAll('.home-img, .about-img').forEach(image => {
         image.addEventListener('click', event => {
@@ -225,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupTypedText();
     setupRevealAnimations();
     setupSkills();
-    setupProjectCarousel();
     setupImageRipples();
     setupCertificates();
     setupContactForm();
